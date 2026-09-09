@@ -8,8 +8,8 @@ public class Character_script : MonoBehaviour
     private float xVelocity;
     private bool is_grounded;
     public BoxCollider2D ground_ray;
-    public float coyote_time;
-    public float coyote_timer;
+    public BoxCollider2D left_wall_ray;
+    public BoxCollider2D right_wall_ray;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -29,20 +29,34 @@ public class Character_script : MonoBehaviour
             is_grounded = false;
         }
 
-        if (Input.GetKey(KeyCode.A))
+        xVelocity = 0;
+
+        if (left_wall_ray.IsTouchingLayers(LayerMask.GetMask("Ground")) == false || ground_ray.IsTouchingLayers(LayerMask.GetMask("Ground")))
         {
-            xVelocity = -xStrength;
+            if (Input.GetKey(KeyCode.A))
+            {   
+                xVelocity = -xStrength;
+            }
         }
 
-        if (Input.GetKey(KeyCode.D))
-        {
-            xVelocity = xStrength;
-        }
 
+        if (right_wall_ray.IsTouchingLayers(LayerMask.GetMask("Ground")) == false || ground_ray.IsTouchingLayers(LayerMask.GetMask("Ground")))
+        {
+            if (Input.GetKey(KeyCode.D))
+            {
+                xVelocity = xStrength;
+            }  
+        }   
+
+    
         if (Input.GetKey(KeyCode.A) == false && Input.GetKey(KeyCode.D) == false)
         {
             xVelocity = 0;
         }
+
+
+
+
 
         myRigidbody.linearVelocity = new Vector2 (
             xVelocity,
