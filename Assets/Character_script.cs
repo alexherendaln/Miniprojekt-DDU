@@ -5,8 +5,10 @@ public class Character_script : MonoBehaviour
     public Rigidbody2D myRigidbody;
     public float xStrength;
     public float yStrength;
+    public float dev_friction;
+    private float friction;    
     private float xVelocity;
-    private bool is_grounded;
+    public bool is_grounded;
     public BoxCollider2D ground_ray;
     public BoxCollider2D left_wall_ray;
     public BoxCollider2D right_wall_ray;
@@ -14,11 +16,21 @@ public class Character_script : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        friction = dev_friction / 500 + 0.85f;  
     }
 
     // Update is called once per frame
     void Update()
+    {
+        ground_check();
+
+        x_movement();
+        y_movement();
+
+
+    }
+
+    void ground_check()
     {
         if (ground_ray.IsTouchingLayers(LayerMask.GetMask("Ground")))
         {
@@ -28,36 +40,29 @@ public class Character_script : MonoBehaviour
         {
             is_grounded = false;
         }
+    }
+    void x_movement()
+    {
+        xVelocity *= friction;
 
-        xVelocity = 0;
-
-        if (left_wall_ray.IsTouchingLayers(LayerMask.GetMask("Ground")) == false || ground_ray.IsTouchingLayers(LayerMask.GetMask("Ground")))
+        if (left_wall_ray.IsTouchingLayers(LayerMask.GetMask("Ground")) == false)
         {
             if (Input.GetKey(KeyCode.A))
             {   
-                xVelocity = -xStrength;
+                xVelocity -= xStrength;
             }
         }
 
-
-        if (right_wall_ray.IsTouchingLayers(LayerMask.GetMask("Ground")) == false || ground_ray.IsTouchingLayers(LayerMask.GetMask("Ground")))
+        if (right_wall_ray.IsTouchingLayers(LayerMask.GetMask("Ground")) == false)
         {
             if (Input.GetKey(KeyCode.D))
             {
-                xVelocity = xStrength;
+                xVelocity += xStrength;
             }  
-        }   
-
-    
-        if (Input.GetKey(KeyCode.A) == false && Input.GetKey(KeyCode.D) == false)
-        {
-            xVelocity = 0;
-        }
-
-
-
-
-
+        }  
+    }
+    void y_movement()
+    {
         myRigidbody.linearVelocity = new Vector2 (
             xVelocity,
             myRigidbody.linearVelocity.y
