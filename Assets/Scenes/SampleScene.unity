@@ -763,9 +763,11 @@ MonoBehaviour:
   sword1_prefab: {fileID: 8902497429678008570, guid: c862a8835ea17974f8932d824d839abf, type: 3}
   sword2_prefab: {fileID: 894531834204020368, guid: 1f031a35be86c334b8c13b800c87934d, type: 3}
   sword1_lifetime_static: 0.2
-  sword2_lifetime_static: 0.5
+  sword2_lifetime_static: 0.4
+  attack_recovery_time: 0.2
+  movement_recovery_time: 0.05
   dash_strength: 5
-  sword_equip: 1
+  stance: 1
   attack_pattern_buffer: 1
   xStrength: 0.5
   yStrength: 5
