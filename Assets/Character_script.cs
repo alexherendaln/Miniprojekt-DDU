@@ -9,9 +9,9 @@ public class Character_script : MonoBehaviour
     //sword1 og sword2 er de to forskellige sving (collider rects) man tager i sværdets 3 hit combo.
     public BoxCollider2D sword1_prefab;
     public BoxCollider2D sword2_prefab;
-
-    //skaber den ene instance af sværdet på skærmen, ved begge versioner af attacket.
-    private BoxCollider2D sword_instance;
+//skaber den ene instance af sværdet på skærmen, ved begge versioner af attacket.
+private BoxCollider2D sword_instance;
+[SerializeField] Animator _PlayerAnimation;
     private bool sword_exists = false;
 
     //lifetime_static bestemmer hvor lang tid sværdet er i live og samtidigt også hvor lang tid man er immovable
@@ -33,17 +33,14 @@ public class Character_script : MonoBehaviour
     //bestemmer hvor lang tid der kan gå før at attack pattern starter forfra
     public float attack_pattern_buffer;
     private float attack_pattern_timer;
-
-    //bestemmer retningen som karakteren kigger, bruges kun til hvor sværdet slås lige nu men kan nok også bruges til at vende karakteren
-    // -1 er venstre og +1 er højre
-    private float direction = 1;
+//bestemmer retningen som karakteren kigger, bruges kun til hvor sværdet slås lige nu men kan nok også bruges til at vende karakteren
+// -1 er venstre og +1 er højre
+private float direction = 1;
 
     public float xStrength;
     private float xVelocity;
     public float yStrength;
-
-    public float dev_friction;
-    private float friction;    
+  
     
     public bool immovable;
 
@@ -51,14 +48,15 @@ public class Character_script : MonoBehaviour
     public BoxCollider2D ground_ray;
     public BoxCollider2D left_wall_ray;
     public BoxCollider2D right_wall_ray;
+    private float direction = 1;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Debug.Log("game start");
-        //har skrevet det sådan at det er nemmere at ændre inde i unity
-        friction = dev_friction / 500 + 0.85f;  
+Debug.Log("game start");
+//har skrevet det sådan at det er nemmere at ændre inde i unity
+friction = dev_friction / 500 + 0.85f;
     }
 
     // Update is called once per frame
@@ -112,31 +110,47 @@ public class Character_script : MonoBehaviour
     }
     void x_movement()
     {
-        //tilsætter friction så at spilleren langsomt stopper op
-        xVelocity *= friction;
+//tilsætter friction så at spilleren langsomt stopper op
+xVelocity *= friction;
 
-        if (immovable == false)
-        {
+if (immovable == false)
+{
 
-        //laver checks om vi står op af en mur(med en collider på hver side af spilleren) da vi så ikke skal kunne tilføje kraft mod den, skabte nogle problemer med unitys physics
-        if (left_wall_ray.IsTouchingLayers(LayerMask.GetMask("Ground")) == false)
-        {
-            if (Input.GetKey(KeyCode.A))
-            {   
-                direction = -1;
-                xVelocity -= xStrength;
-            }
+//laver checks om vi står op af en mur(med en collider på hver side af spilleren) da vi så ikke skal kunne tilføje kraft mod den, skabte nogle problemer med unitys physics
+if (left_wall_ray.IsTouchingLayers(LayerMask.GetMask("Ground")) == false)
+{
+    if (Input.GetKey(KeyCode.A))
+    {   
+        direction = -1;
+        xVelocity -= xStrength;
+    }
+
+    if (Input.GetKey(KeyCode.D))
+    {
+        direction = 1;
+        xVelocity += xStrength;
+    }
+}
+}
+
+//opdater direction for joystick/axis input også (brugtes i setup)
+if (Input.GetAxisRaw("Horizontal") != 0)
+{
+    direction = Input.GetAxisRaw("Horizontal");
+}
         }
 
-        if (right_wall_ray.IsTouchingLayers(LayerMask.GetMask("Ground")) == false)
+
+        if (horizontalInput != 0)
         {
-            if (Input.GetKey(KeyCode.D))
-            {
-                direction = 1;
-                xVelocity += xStrength;
-            }  
-        }     
+            _PlayerAnimation.SetBool("isWalking", true);
         }
+        else
+        {
+            _PlayerAnimation.SetBool("isWalking", false);
+        }
+
+        Debug.Log(Input.GetAxisRaw("Horizontal"));
 
     }
     void y_movement()
@@ -178,6 +192,12 @@ public class Character_script : MonoBehaviour
         {
             sword_exists = false;
             Destroy(sword_instance.gameObject);
+immovable = false;
+xVelocity = 0;
+myRigidbody.linearVelocity = new Vector2 (
+0,
+0
+);
         }
 
 
