@@ -8,6 +8,7 @@ public class Character_script : MonoBehaviour
     public BoxCollider2D sword1_prefab;
     private BoxCollider2D sword_instance;
     public BoxCollider2D sword2_prefab;
+    [SerializeField] Animator _PlayerAnimation;
     private bool sword_exists = false;
     public float sword1_lifetime_static;
     public float sword2_lifetime_static;
@@ -17,14 +18,11 @@ public class Character_script : MonoBehaviour
     private float attack_pattern = 0;
     public float attack_pattern_buffer;
     private float attack_pattern_timer;
-    private float direction = 1;
 
     public float xStrength;
     private float xVelocity;
     public float yStrength;
-
-    public float dev_friction;
-    private float friction;    
+  
     
     public bool immovable;
 
@@ -32,12 +30,12 @@ public class Character_script : MonoBehaviour
     public BoxCollider2D ground_ray;
     public BoxCollider2D left_wall_ray;
     public BoxCollider2D right_wall_ray;
+    private float direction = 1;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        friction = dev_friction / 500 + 0.85f;  
     }
 
     // Update is called once per frame
@@ -70,27 +68,26 @@ public class Character_script : MonoBehaviour
     }
     void x_movement()
     {
-        xVelocity *= friction;
-        if (immovable == false)
+        float horizontalInput = Input.GetAxisRaw("Horizontal");
+        Vector3 movement = new Vector3(horizontalInput, 0, 0);
+        transform.position += movement * xStrength * Time.deltaTime;
+
+        if ( Input.GetAxisRaw("Horizontal")!= 0)
         {
-        if (left_wall_ray.IsTouchingLayers(LayerMask.GetMask("Ground")) == false)
-        {
-            if (Input.GetKey(KeyCode.A))
-            {   
-                direction = -1;
-                xVelocity -= xStrength;
-            }
+        direction = Input.GetAxisRaw("Horizontal");
         }
 
-        if (right_wall_ray.IsTouchingLayers(LayerMask.GetMask("Ground")) == false)
+
+        if (horizontalInput != 0)
         {
-            if (Input.GetKey(KeyCode.D))
-            {
-                direction = 1;
-                xVelocity += xStrength;
-            }  
-        }     
+            _PlayerAnimation.SetBool("isWalking", true);
         }
+        else
+        {
+            _PlayerAnimation.SetBool("isWalking", false);
+        }
+
+        Debug.Log(Input.GetAxisRaw("Horizontal"));
 
     }
     void y_movement()
@@ -136,6 +133,11 @@ public class Character_script : MonoBehaviour
             sword_exists = false;
             Destroy(sword_instance.gameObject);
             immovable = false;
+            xVelocity = 0;
+            myRigidbody.linearVelocity = new Vector2 (
+            0,
+            0
+            );            
         }
     }
     void sword1_attack()
