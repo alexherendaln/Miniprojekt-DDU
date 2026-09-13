@@ -23,7 +23,6 @@ public class enemyscript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 point = currentpoint.position - transform.position;
         if (currentpoint == PointB.transform)
         {
             rb.linearVelocity = new Vector2(Speed, 0);
@@ -52,7 +51,7 @@ public class enemyscript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Weapon"))
+        if(collision. CompareTag("Weapon"))
         {
             Destroy(Enemy_1.gameObject);
         }
