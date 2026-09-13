@@ -1,3 +1,6 @@
+using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
+using UnityEditor.Build.Reporting;
 using UnityEngine;
 
 public class enemyscript : MonoBehaviour
@@ -7,6 +10,8 @@ public class enemyscript : MonoBehaviour
     private Rigidbody2D rb;
     private Transform currentpoint;
     public float Speed;
+    public GameObject Enemy_1;
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -43,5 +48,13 @@ public class enemyscript : MonoBehaviour
         Gizmos.DrawWireSphere(PointA.transform.position, 0.5f);
         Gizmos.DrawWireSphere(PointB.transform.position, 0.5f);
         Gizmos.DrawLine(PointA.transform.position, PointB.transform.position);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Weapon"))
+        {
+            Destroy(Enemy_1.gameObject);
+        }
     }
 }
