@@ -12,6 +12,7 @@ public class Character_script : MonoBehaviour
     private bool sword_exists = false;
     public float sword1_lifetime_static;
     public float sword2_lifetime_static;
+    public float sword_recovery_time;
     private float sword_lifetime = 0f;
     public float dash_strength;
     public float sword_equip = 1;
@@ -69,6 +70,8 @@ public class Character_script : MonoBehaviour
     void x_movement()
     {
         float horizontalInput = Input.GetAxisRaw("Horizontal");
+        if (immovable == false)
+        {
         Vector3 movement = new Vector3(horizontalInput, 0, 0);
         transform.position += movement * xStrength * Time.deltaTime;
 
@@ -76,6 +79,8 @@ public class Character_script : MonoBehaviour
         {
         direction = Input.GetAxisRaw("Horizontal");
         }
+        }
+
 
 
         if (horizontalInput != 0)
@@ -128,11 +133,15 @@ public class Character_script : MonoBehaviour
             attack_pattern_timer -= Time.deltaTime;
         }
 
+        if (sword_lifetime <= sword_recovery_time)
+        {
+            immovable = false;
+        }
+
         if (sword_lifetime <= 0.05 && sword_exists == true)
         {
             sword_exists = false;
             Destroy(sword_instance.gameObject);
-            immovable = false;
             xVelocity = 0;
             myRigidbody.linearVelocity = new Vector2 (
             0,
@@ -142,7 +151,6 @@ public class Character_script : MonoBehaviour
     }
     void sword1_attack()
     {
-        
         if (sword_lifetime <= 0 && Input.GetMouseButtonDown(0))
             {   
                 sword_exists = true;
