@@ -797,7 +797,7 @@ MonoBehaviour:
   _PlayerAnimation: {fileID: 714363092}
   sword1_lifetime_static: 0.2
   sword2_lifetime_static: 0.5
-  sword_recovery_time: 0.1
+  sword_recovery_time: 0.15
   dash_strength: 0.5
   sword_equip: 1
   attack_pattern_buffer: 1

@@ -138,7 +138,7 @@ public class Character_script : MonoBehaviour
             immovable = false;
         }
 
-        if (sword_lifetime <= 0.05 && sword_exists == true)
+        if (sword_lifetime <= sword_recovery_time && sword_exists == true)
         {
             sword_exists = false;
             Destroy(sword_instance.gameObject);
