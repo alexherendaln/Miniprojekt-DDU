@@ -1,5 +1,7 @@
 using Unity.Mathematics;
 using Unity.VisualScripting;
+using TMPro;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class Character_script : MonoBehaviour
@@ -33,10 +35,21 @@ public class Character_script : MonoBehaviour
     public BoxCollider2D right_wall_ray;
     private float direction = 1;
 
+    public Slider healthBar;
+
+    public TMP_Text healthText;
+
+    public int health = 100;
+    public float invincibilityTime = 10f;
+    private float invincibilityTimer = 0f;
+
+    public int maxHealth = 0;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        health = maxHealth;
     }
 
     // Update is called once per frame
@@ -54,6 +67,19 @@ public class Character_script : MonoBehaviour
 
         sword_lifetime -= Time.deltaTime;
 
+        healthText.text = health + " / " + maxHealth;
+        healthBar.value = (float)health / (float)maxHealth;
+        invincibilityTimer -= Time.deltaTime;
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "enemy" && invincibilityTimer <= 0)
+        {
+            health -= 25;
+            invincibilityTimer = invincibilityTime;
+        }
     }
 
     void ground_check()
