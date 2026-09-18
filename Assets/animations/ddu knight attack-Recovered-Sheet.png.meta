@@ -1,19 +1,22 @@
 fileFormatVersion: 2
-guid: 53d63936161bf2546b33ba61fe168efb
+guid: 5aa903fa68f0883428d8980a33d1d564
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5344746009092590258
-    second: knight move Sheet_0
+      213: 1649212739867556234
+    second: ddu knight attack-Recovered-Sheet_0
   - first:
-      213: 312747077934231615
-    second: knight move Sheet_1
+      213: 2209080360812608505
+    second: ddu knight attack-Recovered-Sheet_1
   - first:
-      213: 6216698039767917944
-    second: knight move Sheet_2
+      213: -3732214404228099763
+    second: ddu knight attack-Recovered-Sheet_2
   - first:
-      213: -7599716034625551737
-    second: knight move Sheet_3
+      213: -5712434729370204017
+    second: ddu knight attack-Recovered-Sheet_3
+  - first:
+      213: -3164802920310875541
+    second: ddu knight attack-Recovered-Sheet_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,13 +112,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: knight move Sheet_0
+      name: ddu knight attack-Recovered-Sheet_0
       rect:
         serializedVersion: 2
-        x: 4
+        x: 69
         y: 0
-        width: 23
-        height: 32
+        width: 152
+        height: 301
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +127,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2ba86a67d2a5c2a40800000000000000
-      internalID: 5344746009092590258
+      spriteID: a89badebf3e23e610800000000000000
+      internalID: 1649212739867556234
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: knight move Sheet_1
+      name: ddu knight attack-Recovered-Sheet_1
       rect:
         serializedVersion: 2
-        x: 38
+        x: 359
         y: 0
-        width: 17
-        height: 31
+        width: 182
+        height: 301
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,20 +149,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f30bfc47fc9175400800000000000000
-      internalID: 312747077934231615
+      spriteID: 9fbf68a42ea38ae10800000000000000
+      internalID: 2209080360812608505
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: knight move Sheet_2
+      name: ddu knight attack-Recovered-Sheet_2
       rect:
         serializedVersion: 2
-        x: 67
+        x: 729
         y: 0
-        width: 23
-        height: 32
+        width: 132
+        height: 311
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,20 +171,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 875eb300ee5264650800000000000000
-      internalID: 6216698039767917944
+      spriteID: d41536206c2843cc0800000000000000
+      internalID: -3732214404228099763
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: knight move Sheet_3
+      name: ddu knight attack-Recovered-Sheet_3
       rect:
         serializedVersion: 2
-        x: 102
+        x: 1049
         y: 0
-        width: 17
-        height: 31
+        width: 202
+        height: 301
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,8 +193,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 782cd421882688690800000000000000
-      internalID: -7599716034625551737
+      spriteID: f88c84121ea59b0b0800000000000000
+      internalID: -5712434729370204017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ddu knight attack-Recovered-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 1359
+        y: 0
+        width: 212
+        height: 311
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6a50c6038c5414d0800000000000000
+      internalID: -3164802920310875541
       vertices: []
       indices: 
       edges: []
@@ -210,10 +235,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      knight move Sheet_0: 5344746009092590258
-      knight move Sheet_1: 312747077934231615
-      knight move Sheet_2: 6216698039767917944
-      knight move Sheet_3: -7599716034625551737
+      ddu knight attack-Recovered-Sheet_0: 1649212739867556234
+      ddu knight attack-Recovered-Sheet_1: 2209080360812608505
+      ddu knight attack-Recovered-Sheet_2: -3732214404228099763
+      ddu knight attack-Recovered-Sheet_3: -5712434729370204017
+      ddu knight attack-Recovered-Sheet_4: -3164802920310875541
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
