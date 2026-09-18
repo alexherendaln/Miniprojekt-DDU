@@ -212,6 +212,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: baec6a483f6278f4d8e2971607e5c7bb, type: 3}
+<<<<<<< HEAD
 --- !u!1 &109962974
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,6 +258,8 @@ Transform:
   - {fileID: 989854882}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> parent of 1e2dce8 (tilemap)
 --- !u!1 &145809426
 GameObject:
   m_ObjectHideFlags: 0
@@ -1342,7 +1345,11 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+<<<<<<< HEAD
   m_LocalPosition: {x: -9.69, y: 0.40999997, z: -1}
+=======
+  m_LocalPosition: {x: 89.3, y: -13.79, z: -1}
+>>>>>>> parent of 1e2dce8 (tilemap)
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2305,7 +2312,11 @@ Transform:
   m_GameObject: {fileID: 714363086}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+<<<<<<< HEAD
   m_LocalPosition: {x: -9.69, y: -1.09, z: 0}
+=======
+  m_LocalPosition: {x: 89.3, y: -15.29, z: 0}
+>>>>>>> parent of 1e2dce8 (tilemap)
   m_LocalScale: {x: 0.39896, y: 0.39896, z: 0.39896}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2416,11 +2427,14 @@ MonoBehaviour:
   ground_ray: {fileID: 1486879336}
   left_wall_ray: {fileID: 701360789}
   right_wall_ray: {fileID: 1968462664}
+<<<<<<< HEAD
   healthBar: {fileID: 1797032674}
   healthText: {fileID: 1150781114}
   health: 100
   invincibilityTime: 10
   maxHealth: 0
+=======
+>>>>>>> parent of 1e2dce8 (tilemap)
 --- !u!95 &714363092
 Animator:
   serializedVersion: 7
@@ -2629,6 +2643,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: baec6a483f6278f4d8e2971607e5c7bb, type: 3}
+<<<<<<< HEAD
 --- !u!1 &786990082
 GameObject:
   m_ObjectHideFlags: 0
@@ -2783,6 +2798,8 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 870253733}
   m_CullTransparentMesh: 1
+=======
+>>>>>>> parent of 1e2dce8 (tilemap)
 --- !u!1001 &875511567
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3163,6 +3180,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bb81b9f4a42c694bb07e7ece8f937d8, type: 3}
+<<<<<<< HEAD
 --- !u!1 &989854881
 GameObject:
   m_ObjectHideFlags: 0
@@ -3290,6 +3308,8 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+=======
+>>>>>>> parent of 1e2dce8 (tilemap)
 --- !u!1001 &1023323395
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4242,7 +4262,11 @@ Transform:
   m_GameObject: {fileID: 1229776862}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+<<<<<<< HEAD
   m_LocalPosition: {x: -9.69, y: 0.40999997, z: -1}
+=======
+  m_LocalPosition: {x: 89.3, y: -13.79, z: -1}
+>>>>>>> parent of 1e2dce8 (tilemap)
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6960,6 +6984,74 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: baec6a483f6278f4d8e2971607e5c7bb, type: 3}
+<<<<<<< HEAD
+=======
+--- !u!1001 &1977364842
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3512880154804636206, guid: 1bb81b9f4a42c694bb07e7ece8f937d8, type: 3}
+      propertyPath: m_Name
+      value: Enemy_1 (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4710086740728800530, guid: 1bb81b9f4a42c694bb07e7ece8f937d8, type: 3}
+      propertyPath: PointA
+      value: 
+      objectReference: {fileID: 303142598}
+    - target: {fileID: 4710086740728800530, guid: 1bb81b9f4a42c694bb07e7ece8f937d8, type: 3}
+      propertyPath: PointB
+      value: 
+      objectReference: {fileID: 1444839523}
+    - target: {fileID: 5590013096662438848, guid: 1bb81b9f4a42c694bb07e7ece8f937d8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 80.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 5590013096662438848, guid: 1bb81b9f4a42c694bb07e7ece8f937d8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -10.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 5590013096662438848, guid: 1bb81b9f4a42c694bb07e7ece8f937d8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5590013096662438848, guid: 1bb81b9f4a42c694bb07e7ece8f937d8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5590013096662438848, guid: 1bb81b9f4a42c694bb07e7ece8f937d8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5590013096662438848, guid: 1bb81b9f4a42c694bb07e7ece8f937d8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5590013096662438848, guid: 1bb81b9f4a42c694bb07e7ece8f937d8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5590013096662438848, guid: 1bb81b9f4a42c694bb07e7ece8f937d8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5590013096662438848, guid: 1bb81b9f4a42c694bb07e7ece8f937d8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5590013096662438848, guid: 1bb81b9f4a42c694bb07e7ece8f937d8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1bb81b9f4a42c694bb07e7ece8f937d8, type: 3}
+>>>>>>> parent of 1e2dce8 (tilemap)
 --- !u!1001 &1981372669
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7518,5 +7610,8 @@ SceneRoots:
   - {fileID: 1853743234}
   - {fileID: 268814381}
   - {fileID: 1115775703}
+<<<<<<< HEAD
   - {fileID: 109962976}
   - {fileID: 786990085}
+=======
+>>>>>>> parent of 1e2dce8 (tilemap)
