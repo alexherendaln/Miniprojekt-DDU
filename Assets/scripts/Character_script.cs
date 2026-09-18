@@ -211,7 +211,7 @@ public class Character_script : MonoBehaviour
 
                 immovable = true;
                 
-                xVelocity = dash_strength*3 * direction;
+                xVelocity = dash_strength*5 * direction;
                 myRigidbody.linearVelocity = new Vector2 (
                 myRigidbody.linearVelocity.x,
                 0
