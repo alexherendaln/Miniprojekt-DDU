@@ -219,7 +219,7 @@ public class Character_script : MonoBehaviour
 
                 sword_instance = Instantiate(
                     sword2_prefab,
-                    new Vector2(transform.position.x+direction,transform.position.y),
+                    new Vector2(transform.position.x+direction*2,transform.position.y+0.2f),
                     Quaternion.identity, 
                     this.transform
                     );
