@@ -34,6 +34,11 @@ public class playerControl : MonoBehaviour
         {
             health -= 25;
             invincibilityTimer = invincibilityTime;
+            if (health <= 0)
+            {
+                health = 0;
+                // Handle player death here
+            }
         }
     }
 }
