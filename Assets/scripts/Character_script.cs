@@ -98,10 +98,9 @@ public class Character_script : MonoBehaviour
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         if (immovable == false)
         {
-        Vector3 movement = new Vector3(horizontalInput, 0, 0);
-        transform.position += movement * xStrength * Time.deltaTime;
+            myRigidbody.linearVelocity = new Vector2(horizontalInput*xStrength, myRigidbody.linearVelocity.y);
 
-        if ( Input.GetAxisRaw("Horizontal")!= 0)
+            if ( Input.GetAxisRaw("Horizontal")!= 0)
         {
         direction = Input.GetAxisRaw("Horizontal");
         }
@@ -123,10 +122,7 @@ public class Character_script : MonoBehaviour
     }
     void y_movement()
     {
-        myRigidbody.linearVelocity = new Vector2 (
-            xVelocity,
-            myRigidbody.linearVelocity.y
-        );
+       
         
 
         if (Input.GetKeyDown(KeyCode.Space) == true && is_grounded && immovable == false)
