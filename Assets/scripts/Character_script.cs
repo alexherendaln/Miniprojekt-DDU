@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine;
 
+
 public class Character_script : MonoBehaviour
 {
     public Rigidbody2D myRigidbody;
@@ -11,6 +12,7 @@ public class Character_script : MonoBehaviour
     private BoxCollider2D sword_instance;
     public BoxCollider2D sword2_prefab;
     [SerializeField] Animator _PlayerAnimation;
+    [SerializeField] int stance = 1;
     private bool sword_exists = false;
     public float sword1_lifetime_static;
     public float sword2_lifetime_static;
@@ -59,6 +61,7 @@ public class Character_script : MonoBehaviour
 
         x_movement();
         y_movement();
+        StanceChange();
 
         if (sword_equip == 1)
         {
@@ -117,7 +120,6 @@ public class Character_script : MonoBehaviour
             _PlayerAnimation.SetBool("isWalking", false);
         }
 
-        Debug.Log(Input.GetAxisRaw("Horizontal"));
 
     }
     void y_movement()
@@ -222,4 +224,17 @@ public class Character_script : MonoBehaviour
                 attack_pattern = 0;
             }
     }
+
+    void StanceChange()
+    {
+        if (stance == 1 && Input.GetKeyDown(KeyCode.R))
+        {
+            stance = 2;
+        }
+        else if (stance == 2 && Input.GetKeyDown(KeyCode.R))
+        {
+            stance = 1;
+        }
+    }
+        
 }
