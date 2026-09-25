@@ -7,6 +7,7 @@ using UnityEngine;
 public class Character_script : MonoBehaviour
 {
     public Rigidbody2D myRigidbody;
+    private SpriteRenderer mySpriteRenderer;
     public BoxCollider2D sword1_prefab;
     private BoxCollider2D sword_instance;
     public BoxCollider2D sword2_prefab;
@@ -37,7 +38,6 @@ public class Character_script : MonoBehaviour
     public BoxCollider2D left_wall_ray;
     public BoxCollider2D right_wall_ray;
     private float direction = 1;
-
     public Slider healthBar;
 
     public TMP_Text healthText;
@@ -53,6 +53,7 @@ public class Character_script : MonoBehaviour
     void Start()
     {
         health = maxHealth;
+        mySpriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -127,6 +128,17 @@ public class Character_script : MonoBehaviour
         if ( Input.GetAxisRaw("Horizontal")!= 0)
         {
         direction = Input.GetAxisRaw("Horizontal");
+
+        if (direction == -1)
+        {
+            mySpriteRenderer.flipX = true;
+        }
+
+        if (direction == 1)
+        {
+            mySpriteRenderer.flipX = false;
+        }
+
         }
         }
 
