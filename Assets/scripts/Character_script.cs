@@ -4,22 +4,23 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine;
 
-
 public class Character_script : MonoBehaviour
 {
     public Rigidbody2D myRigidbody;
     public BoxCollider2D sword1_prefab;
     private BoxCollider2D sword_instance;
     public BoxCollider2D sword2_prefab;
+    public BoxCollider2D sword3_prefab;
     [SerializeField] Animator _PlayerAnimation;
-    [SerializeField] int stance = 1;
     private bool sword_exists = false;
     public float sword1_lifetime_static;
     public float sword2_lifetime_static;
+    public float sword3_lifetime_static;
     public float sword_recovery_time;
     private float sword_lifetime = 0f;
     public float dash_strength;
-    public float sword_equip = 1;
+    [SerializeField] int stance = 1;
+
     private float attack_pattern = 0;
     public float attack_pattern_buffer;
     private float attack_pattern_timer;
@@ -63,10 +64,29 @@ public class Character_script : MonoBehaviour
         y_movement();
         StanceChange();
 
-        if (sword_equip == 1)
+        if (stance == 1)
         {
             sword_attack();
         }
+        if (stance == 2)
+        {
+            sword_alt_attack();
+        }
+
+        if (sword_lifetime <= sword_recovery_time)
+        {
+            immovable = false;
+        }
+
+        if (sword_lifetime <= sword_recovery_time && sword_exists == true)
+        {
+            sword_exists = false;
+            Destroy(sword_instance.gameObject);
+            xVelocity = 0;   
+        }
+
+
+
 
         sword_lifetime -= Time.deltaTime;
 
@@ -101,9 +121,10 @@ public class Character_script : MonoBehaviour
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         if (immovable == false)
         {
-            myRigidbody.linearVelocity = new Vector2(horizontalInput*xStrength, myRigidbody.linearVelocity.y);
+        Vector3 movement = new Vector3(horizontalInput, 0, 0);
+        transform.position += movement * xStrength * Time.deltaTime;
 
-            if ( Input.GetAxisRaw("Horizontal")!= 0)
+        if ( Input.GetAxisRaw("Horizontal")!= 0)
         {
         direction = Input.GetAxisRaw("Horizontal");
         }
@@ -120,11 +141,13 @@ public class Character_script : MonoBehaviour
             _PlayerAnimation.SetBool("isWalking", false);
         }
 
-
     }
     void y_movement()
     {
-       
+        myRigidbody.linearVelocity = new Vector2 (
+            xVelocity,
+            myRigidbody.linearVelocity.y
+        );
         
 
         if (Input.GetKeyDown(KeyCode.Space) == true && is_grounded && immovable == false)
@@ -155,22 +178,6 @@ public class Character_script : MonoBehaviour
         if (sword_exists == false)
         {
             attack_pattern_timer -= Time.deltaTime;
-        }
-
-        if (sword_lifetime <= sword_recovery_time)
-        {
-            immovable = false;
-        }
-
-        if (sword_lifetime <= sword_recovery_time && sword_exists == true)
-        {
-            sword_exists = false;
-            Destroy(sword_instance.gameObject);
-            xVelocity = 0;
-            myRigidbody.linearVelocity = new Vector2 (
-            0,
-            0
-            );            
         }
     }
     void sword1_attack()
@@ -223,7 +230,33 @@ public class Character_script : MonoBehaviour
                     );
                 attack_pattern = 0;
             }
-    }
+        } 
+
+ void sword_alt_attack()
+    {
+        
+        if (sword_lifetime <= 0 && Input.GetMouseButtonDown(0))
+            {   
+                sword_exists = true;
+                sword_lifetime = sword3_lifetime_static;
+
+                immovable = true;
+                
+                xVelocity = 0;
+                myRigidbody.linearVelocity = new Vector2 (
+                myRigidbody.linearVelocity.x,
+                0
+                );
+
+                sword_instance = Instantiate(
+                    sword3_prefab,
+                    new Vector2(transform.position.x+1.7f,transform.position.y+0.2f),
+                    Quaternion.identity, 
+                    this.transform
+                    );
+                attack_pattern = 0;
+            }
+        } 
 
     void StanceChange()
     {
@@ -236,5 +269,4 @@ public class Character_script : MonoBehaviour
             stance = 1;
         }
     }
-        
 }

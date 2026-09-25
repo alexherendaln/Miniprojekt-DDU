@@ -1973,15 +1973,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   myRigidbody: {fileID: 714363089}
-  sword1_prefab: {fileID: 8902497429678008570, guid: c862a8835ea17974f8932d824d839abf, type: 3}
+  sword1_prefab: {fileID: 5834389954981078899, guid: c862a8835ea17974f8932d824d839abf, type: 3}
   sword2_prefab: {fileID: 894531834204020368, guid: 1f031a35be86c334b8c13b800c87934d, type: 3}
+  sword3_prefab: {fileID: 6338655448071893182, guid: a41885ad5e409e54dbc9640e8ea656cc, type: 3}
   _PlayerAnimation: {fileID: 714363092}
-  stance: 1
   sword1_lifetime_static: 0.2
   sword2_lifetime_static: 0.5
+  sword3_lifetime_static: 0.18
   sword_recovery_time: 0.15
   dash_strength: 0.5
-  sword_equip: 1
+  stance: 1
   attack_pattern_buffer: 1
   xStrength: 5
   yStrength: 5
@@ -12260,7 +12261,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -1.45, z: 0}
-  m_LocalScale: {x: 1.3535501, y: 1, z: 10.871997}
+  m_LocalScale: {x: 1.285825, y: 1, z: 10.871997}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 714363088}
