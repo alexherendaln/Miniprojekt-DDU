@@ -216,7 +216,8 @@ public class Character_script : MonoBehaviour
                     this.transform
                     );
                 attack_pattern += 1;
-            }
+            _PlayerAnimation.SetTrigger("Attack1");
+        }
     }
     void sword2_attack()
     {
@@ -241,7 +242,8 @@ public class Character_script : MonoBehaviour
                     this.transform
                     );
                 attack_pattern = 0;
-            }
+            _PlayerAnimation.SetTrigger("Attack1");
+        }
         } 
 
  void sword_alt_attack()
@@ -267,7 +269,8 @@ public class Character_script : MonoBehaviour
                     this.transform
                     );
                 attack_pattern = 0;
-            }
+            _PlayerAnimation.SetTrigger("Attack1");
+        }
         } 
 
     void StanceChange()

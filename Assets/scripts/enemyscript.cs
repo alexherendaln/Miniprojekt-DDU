@@ -14,6 +14,7 @@ public class enemyscript : MonoBehaviour
     private Vector2 pointB;
 
     private bool movingRight = true;
+    public int health = 2;
 
     public GameObject Enemy_1;
 
@@ -71,7 +72,11 @@ public class enemyscript : MonoBehaviour
     {
         if(collision. CompareTag("Weapon"))
         {
-            Destroy(Enemy_1.gameObject);
+            health -= 1;
+            if(health <= 0)
+            {
+                Destroy(Enemy_1.gameObject);
+            }
         }
     }
 }
