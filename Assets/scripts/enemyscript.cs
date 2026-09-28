@@ -10,6 +10,7 @@ public class enemyscript : MonoBehaviour
     public float Speed;
     [SerializeField] private float patrolDistance = 3;
 
+    private SpriteRenderer mySpriteRenderer;
     private Vector2 pointA;
     private Vector2 pointB;
 
@@ -23,9 +24,12 @@ public class enemyscript : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-       
+        mySpriteRenderer = GetComponent<SpriteRenderer>();
+
         pointA = new Vector2(transform.position.x - patrolDistance, transform.position.y);
         pointB = new Vector2(transform.position.x + patrolDistance, transform.position.y);
+
+
     }
 
     // Update is called once per frame
@@ -39,6 +43,7 @@ public class enemyscript : MonoBehaviour
             {
                 movingRight = false;
             }
+            mySpriteRenderer.flipX = false;
         }
         else
         {
@@ -48,6 +53,7 @@ public class enemyscript : MonoBehaviour
             {
                 movingRight = true;
             }
+                mySpriteRenderer.flipX = true;
         }
     }
 
