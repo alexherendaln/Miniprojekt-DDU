@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - Weapon
+  - enemy
+  - Strong weapon
   layers:
   - Default
   - TransparentFX

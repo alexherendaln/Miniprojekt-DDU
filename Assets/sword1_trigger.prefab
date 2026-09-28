@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 282727395551895286}
   m_Layer: 0
   m_Name: sword1_trigger
-  m_TagString: Weapon
+  m_TagString: Strong weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

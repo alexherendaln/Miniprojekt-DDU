@@ -3,7 +3,7 @@ using Unity.VisualScripting;
 using UnityEditor.Build.Reporting;
 using UnityEngine;
 
-public class enemyscript : MonoBehaviour
+public class Strong_enemy_script : MonoBehaviour
 {
     private Rigidbody2D rb;
 
@@ -17,7 +17,7 @@ public class enemyscript : MonoBehaviour
     private bool movingRight = true;
     public int health = 2;
 
-    public GameObject Enemy_1;
+    public GameObject Enemy_strong;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -76,22 +76,23 @@ public class enemyscript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision. CompareTag("Weapon"))
+        if(collision. CompareTag("Strong weapon"))
         {
-            health -= 2;
+            health -= 3;
             if(health <= 0)
             {
-                Destroy(Enemy_1.gameObject);
+                Destroy(Enemy_strong.gameObject);
             }
         }
 
-        if(collision. CompareTag("Strong weapon"))
+        if(collision. CompareTag("Weapon"))
         {
             health -= 1;
             if(health <= 0)
             {
-                Destroy(Enemy_1.gameObject);
+                Destroy(Enemy_strong.gameObject);
             }
         }
     }
 }
+

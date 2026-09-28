@@ -182,7 +182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   Speed: 2
   patrolDistance: 3
-  health: 2
+  health: 6
   Enemy_1: {fileID: 3512880154804636206}
 --- !u!95 &6759464746515394048
 Animator:
