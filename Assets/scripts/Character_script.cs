@@ -101,7 +101,7 @@ public class Character_script : MonoBehaviour
     {
         if (other.gameObject.tag == "enemy" && invincibilityTimer <= 0)
         {
-            health -= 25;
+            health -= 10;
             invincibilityTimer = invincibilityTime;
         }
     }
